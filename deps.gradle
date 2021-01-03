@@ -1,0 +1,67 @@
+ext {
+
+    versions = [
+            'koin'            : '2.2.2',
+            'coroutines'      : '1.3.2',
+
+
+            'gradle'          : '4.1.1',
+            'kotlin'          : '1.4.21',
+            'androidx'        : '1.2.0',
+            'cardView'        : '1.0.0',
+            'materialDesign'  : '1.2.1',
+            'constraintLayout': '1.1.3',
+            'glide'           : '4.11.0',
+            'timber'          : '4.7.1',
+            'ktlint'          : '9.0.0',
+            'arrow'           : '0.11.0',
+            'androidX'        : [
+                    'fragments'       : '1.2.0',
+                    'fragmentKTX'     : '1.2.0',
+                    'viewpager2'      : '1.0.0',
+                    'recyclerView'    : '1.1.0',
+                    'lifecycleProcess': '2.2.0'
+            ]
+    ]
+
+    buildPlugins = [
+            'gradle'                 : "com.android.tools.build:gradle:${versions.gradle}",
+            'kotlin'                 : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
+            'ktlint'                 : "org.jlleitschuh.gradle:ktlint-gradle:${versions.ktlint}"
+    ]
+
+    deps = [
+            'koin'           : "org.koin:koin-core:${versions.koin}",
+            'koinAndroid'    : "org.koin:koin-android:${versions.koin}",
+            'koinAndroidViewmodel'    : "org.koin:koin-android-viewmodel:${versions.koin}",
+
+
+            'kotlin'          : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
+            'coroutines'      : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}",
+            'androidx'        : [
+                    'annotations'     : "androidx.annotation:annotation:${versions.androidx}",
+                    'appCompat'       : "androidx.appcompat:appcompat:${versions.androidx}",
+                    'recyclerView'    : "androidx.recyclerview:recyclerview:${versions.androidX.recyclerView}",
+                    'cardView'        : "androidx.cardview:cardview:${versions.cardView}",
+                    'browser'         : "androidx.browser:browser:${versions.browser}",
+                    'design'          : "com.google.android.material:material:${versions.materialDesign}",
+                    'constraintLayout': "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
+                    'fragments'       : "androidx.fragment:fragment:${versions.androidX.fragments}",
+                    'fragmentKTX'     : "androidx.fragment:fragment-ktx:${versions.androidX.fragmentKTX}",
+                    'viewpager2'      : "androidx.viewpager2:viewpager2:${versions.androidX.viewpager2}",
+                    'lifecycleProcess': "androidx.lifecycle:lifecycle-process:${versions.androidX.lifecycleProcess}",
+            ],
+            'glide'           : [
+                    'core'    : "com.github.bumptech.glide:glide:${versions.glide}",
+                    'compiler': "com.github.bumptech.glide:compiler:${versions.glide}"
+            ],
+            'leakCanary'      : [
+                    'debug'  : "com.squareup.leakcanary:leakcanary-android:1.6.3",
+                    'release': "com.squareup.leakcanary:leakcanary-android-no-op:1.6.3"
+            ],
+            'cicerone'        : 'ru.terrakok.cicerone:cicerone:3.0.0',
+            'timber'          : "com.jakewharton.timber:timber:${versions.timber}",
+            'arrowcore'       : "io.arrow-kt:arrow-core:${versions.arrow}",
+            'arrowsyntax'     : "io.arrow-kt:arrow-syntax:${versions.arrow}"
+    ]
+}

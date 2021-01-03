@@ -1,0 +1,9 @@
+ext {
+    config = [
+            'id':"andrew.misterio.cyberpunk",
+            'versionCode': 1,
+            'versionName': "0.0.0",
+            'minSDK': 21,
+            'currentSDK': 29
+    ]
+}
