@@ -1,7 +1,8 @@
-package andrew.misterio.cyberpunk
+package andrew.misterio.rickandmorty
 
-import andrew.misterio.cyberpunk.di.appModule
-import andrew.misterio.feature_start.FeatureMain
+import andrew.misterio.feature_home.featureHomeModule
+import andrew.misterio.feature_start.featureStartModule
+import andrew.misterio.rickandmorty.di.appModule
 import android.app.Application
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -15,7 +16,8 @@ class App : Application() {
             androidContext(this@App)
             modules(
                 appModule,
-                FeatureMain.module
+                featureStartModule,
+                featureHomeModule
             )
         }
     }

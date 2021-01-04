@@ -16,7 +16,7 @@ android {
         versionCode config.versionCode
         versionName config.versionName
 
-        setProperty("archivesBaseName", "Cyberpunk_$versionName($versionCode)")
+        setProperty("archivesBaseName", "${name}_$versionName($versionCode)")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -43,20 +43,12 @@ android {
 dependencies {
 
     implementation(
-            project(':feature_start')
+            project(':common'),
+            project(':feature_base'),
+            project(':feature_start'),
+            project(':feature_home')
     )
-
-    implementation deps.koinAndroidViewmodel
-    implementation deps.kotlin
-    implementation deps.androidx.appCompat
-    implementation deps.androidx.fragments
-    implementation deps.androidx.viewpager2
-    implementation deps.androidx.design
-    implementation deps.androidx.cardView
-    implementation(deps.androidx.constraintLayout) {
-        force = true
-    }
-    implementation(deps.glide.core) {
-        exclude group: "com.android.support"
-    }
+    implementation deps.androidx.navigation.fragmentKtx
+    implementation deps.androidx.navigation.uiKtx
 }
+apply plugin: "org.jlleitschuh.gradle.ktlint"

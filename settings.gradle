@@ -1,4 +1,3 @@
-
 rootProject.name = "TestKoinVMCoroutines"
 
 include ':app'
@@ -9,7 +8,9 @@ include ':common'
 project(':common').projectDir = new File(rootDir, 'sources/common')
 
 // FEATURES:
-include ':feature_start'
-project(':feature_start').projectDir = new File(rootDir, 'sources/features/start/feature_start')
 include ':feature_base'
 project(':feature_base').projectDir = new File(rootDir, 'sources/features/feature_base')
+include ':feature_start'
+project(':feature_start').projectDir = new File(rootDir, 'sources/features/start/feature_start')
+include ':feature_home'
+project(':feature_home').projectDir = new File(rootDir, 'sources/features/home/feature_home')

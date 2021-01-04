@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextWithBG" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/architects_daughter</item>
+        <item name="android:background">#88212121</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>

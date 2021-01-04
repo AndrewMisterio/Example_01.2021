@@ -18,7 +18,3 @@ inline fun <reified T : ViewModel> BaseFragment.viewModel(
     owner = { ViewModelOwner.Companion.from(viewModelStore) }
 )
 
-fun BaseFragment.parentScope(): Scope? = kotlin.run {
-    parentFragment as? KoinScopeComponent ?: activity as? KoinScopeComponent
-}
-        ?.scope

@@ -27,16 +27,19 @@ android {
 }
 
 dependencies {
-    implementation deps.koinAndroidViewmodel
-    implementation deps.kotlin
-    implementation deps.arrowcore
-    implementation deps.arrowsyntax
-    implementation deps.androidx.appCompat
-    implementation deps.androidx.fragments
-    implementation deps.androidx.viewpager2
-    implementation deps.androidx.design
-    implementation deps.androidx.cardView
-    implementation(deps.androidx.constraintLayout) {
+    implementation(project(':common'))
+    api(
+            deps.koinAndroidViewmodel,
+            deps.kotlin,
+            deps.arrowcore,
+            deps.arrowsyntax,
+            deps.androidx.appCompat,
+            deps.androidx.fragments,
+            deps.androidx.viewpager2,
+            deps.androidx.design,
+            deps.androidx.cardView
+    )
+    api(deps.androidx.constraintLayout) {
         force = true
     }
     implementation(deps.glide.core) {
