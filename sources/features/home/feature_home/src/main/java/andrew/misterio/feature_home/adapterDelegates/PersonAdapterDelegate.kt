@@ -5,6 +5,10 @@ import andrew.misterio.feature_base.recycler.AdapterViewModel
 import andrew.misterio.feature_base.recycler.dsl.delegate
 import andrew.misterio.feature_home.R
 import andrew.misterio.feature_home.databinding.RecyclerItemPersonBinding
+import android.graphics.drawable.Drawable
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.view.ViewCompat
 
 fun createPersonAdapterDelegate(onClick: (AdapterViewModel) -> Unit) = delegate<PersonAdapterViewModel>(
     layoutId = R.layout.recycler_item_person
