@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
 }
 apply from: "$rootDir/deps.gradle"
 apply from: "$rootDir/config.gradle"
@@ -44,11 +43,15 @@ dependencies {
 
     implementation(
             project(':common'),
+            project(':repo_remote'),
             project(':feature_base'),
             project(':feature_start'),
             project(':feature_home')
     )
     implementation deps.androidx.navigation.fragmentKtx
     implementation deps.androidx.navigation.uiKtx
+    implementation "com.squareup.okhttp3:okhttp:4.9.0"
+    debugImplementation deps.chucker.debug
+    releaseImplementation deps.chucker.release
 }
 apply plugin: "org.jlleitschuh.gradle.ktlint"

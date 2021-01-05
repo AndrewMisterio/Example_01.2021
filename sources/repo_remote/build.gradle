@@ -1,0 +1,25 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'com.apollographql.apollo'
+}
+apply from: "$rootDir/deps.gradle"
+apply from: "$rootDir/config.gradle"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation deps.kotlin
+    implementation deps.koin
+    implementation deps.coroutines
+    implementation deps.apollo.runtime
+    implementation deps.apollo.coroutines
+
+    implementation(
+            project(":domain_home"),
+            project(":common")
+    )
+}

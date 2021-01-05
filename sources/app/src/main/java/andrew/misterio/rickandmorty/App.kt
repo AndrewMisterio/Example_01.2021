@@ -2,6 +2,7 @@ package andrew.misterio.rickandmorty
 
 import andrew.misterio.feature_home.featureHomeModule
 import andrew.misterio.feature_start.featureStartModule
+import andrew.misterio.repo_remote.repoRemoteModule
 import andrew.misterio.rickandmorty.di.appModule
 import android.app.Application
 import org.koin.android.ext.koin.androidContext
@@ -17,7 +18,8 @@ class App : Application() {
             modules(
                 appModule,
                 featureStartModule,
-                featureHomeModule
+                featureHomeModule,
+                repoRemoteModule
             )
         }
     }

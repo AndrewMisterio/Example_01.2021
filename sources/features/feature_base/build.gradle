@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
 }
 apply from: "$rootDir/deps.gradle"
 apply from: "$rootDir/config.gradle"
@@ -31,8 +30,6 @@ dependencies {
     api(
             deps.koinAndroidViewmodel,
             deps.kotlin,
-            deps.arrowcore,
-            deps.arrowsyntax,
             deps.androidx.appCompat,
             deps.androidx.fragments,
             deps.androidx.viewpager2,

@@ -6,6 +6,8 @@ ext {
 
 
             'gradle'          : '4.1.1',
+            'chucker'         : '3.4.0',
+            'apollo'          : '2.4.6',
             'kotlin'          : '1.4.21',
             'androidx'        : '1.2.0',
             'cardView'        : '1.0.0',
@@ -27,7 +29,8 @@ ext {
     buildPlugins = [
             'gradle': "com.android.tools.build:gradle:${versions.gradle}",
             'kotlin': "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
-            'ktlint': "org.jlleitschuh.gradle:ktlint-gradle:${versions.ktlint}"
+            'ktlint': "org.jlleitschuh.gradle:ktlint-gradle:${versions.ktlint}",
+            'apollo': "com.apollographql.apollo:apollo-gradle-plugin:${versions.apollo}"
     ]
 
     deps = [
@@ -55,6 +58,10 @@ ext {
                             'uiKtx'      : 'androidx.navigation:navigation-ui-ktx:2.2.2'
                     ]
             ],
+            'apollo'              : [
+                    'runtime'   : "com.apollographql.apollo:apollo-runtime:${versions.apollo}",
+                    'coroutines': "com.apollographql.apollo:apollo-coroutines-support:${versions.apollo}"
+            ],
             'glide'               : [
                     'core'    : "com.github.bumptech.glide:glide:${versions.glide}",
                     'compiler': "com.github.bumptech.glide:compiler:${versions.glide}"
@@ -66,6 +73,10 @@ ext {
             'cicerone'            : 'ru.terrakok.cicerone:cicerone:3.0.0',
             'timber'              : "com.jakewharton.timber:timber:${versions.timber}",
             'arrowcore'           : "io.arrow-kt:arrow-core:${versions.arrow}",
-            'arrowsyntax'         : "io.arrow-kt:arrow-syntax:${versions.arrow}"
+            'arrowsyntax'         : "io.arrow-kt:arrow-syntax:${versions.arrow}",
+            'chucker'             : [
+                    'debug'  : "com.github.chuckerteam.chucker:library:${versions.chucker}",
+                    'release': "com.github.chuckerteam.chucker:library-no-op:${versions.chucker}"
+            ]
     ]
 }

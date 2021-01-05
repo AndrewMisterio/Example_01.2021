@@ -11,11 +11,7 @@ java {
 }
 
 dependencies {
-    api (
-            deps.kotlin,
-            deps.koin,
-            deps.coroutines,
-            deps.arrowcore,
-            deps.arrowsyntax
-    )
+    implementation deps.kotlin
+    implementation deps.koin
+    implementation deps.coroutines
 }

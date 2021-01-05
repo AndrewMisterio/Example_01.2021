@@ -15,8 +15,10 @@
             <option value="$PROJECT_DIR$/sources/app" />
             <option value="$PROJECT_DIR$/sources/common" />
             <option value="$PROJECT_DIR$/sources/features/feature_base" />
+            <option value="$PROJECT_DIR$/sources/features/home/domain_home" />
             <option value="$PROJECT_DIR$/sources/features/home/feature_home" />
             <option value="$PROJECT_DIR$/sources/features/start/feature_start" />
+            <option value="$PROJECT_DIR$/sources/repo_remote" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

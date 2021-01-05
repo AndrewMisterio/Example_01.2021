@@ -6,7 +6,6 @@ import andrew.misterio.feature_base.recycler.BaseViewHolder
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.extensions.LayoutContainer
 import kotlin.reflect.KClass
 
 /**
@@ -58,8 +57,8 @@ class ViewHolder<T : AdapterViewModel>(
  * Delegate for ViewHolder contains methods corresponding to the methods of the life cycle of the holder,
  * as well as methods for their initialization.
  */
-class ViewHolderDelegate<T : AdapterViewModel>(view: View) : LayoutContainer {
-    override val containerView: View = view
+class ViewHolderDelegate<T : AdapterViewModel>(view: View) {
+    val containerView: View = view
     val isItemAvailable get() = item !== Uninitialized
 
     internal var item: AdapterViewModel = Uninitialized
