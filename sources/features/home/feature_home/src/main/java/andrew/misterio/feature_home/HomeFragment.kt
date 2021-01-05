@@ -8,6 +8,7 @@ import andrew.misterio.feature_home.adapterDelegates.createRowAdapterDelegate
 import andrew.misterio.feature_home.databinding.FragmentHomeBinding
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
 
 class HomeFragment: BaseFragment(R.layout.fragment_home) {
 
@@ -15,15 +16,14 @@ class HomeFragment: BaseFragment(R.layout.fragment_home) {
 
     private val adapter by lazy {
         RecyclerViewAdapter(
-            createRowAdapterDelegate(
-                createPersonAdapterDelegate(viewModel::onItemClick)
-            )
+            createPersonAdapterDelegate(viewModel::onItemClick)
         )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         FragmentHomeBinding.bind(view).apply {
-            rvHomeRows.adapter = adapter
+            rvHomeList.adapter = adapter
+            rvHomeList.layoutManager = GridLayoutManager(view.context, 2)
             viewModel.listData.observe (adapter::setList)
         }
     }
