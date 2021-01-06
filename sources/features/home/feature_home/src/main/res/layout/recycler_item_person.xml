@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:foreground="@drawable/ripple"
     tools:layout_gravity="center">
@@ -10,20 +10,21 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivItemPersonImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
         tools:src="@tools:sample/avatars" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextWithBG"
         android:id="@+id/tvItemPersonTitle"
+        style="@style/TextWithBG"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_gravity="bottom|center"
         android:background="#99212121"
         android:fontFamily="@font/architects_daughter"
         android:gravity="center"
-        android:padding="8dp"
+        android:padding="@dimen/item_title_padding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -10,11 +10,21 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.ViewCompat
 
-fun createPersonAdapterDelegate(onClick: (AdapterViewModel) -> Unit) = delegate<PersonAdapterViewModel>(
+fun createPersonAdapterDelegate(
+    onClick: (AdapterViewModel) -> Unit,
+    itemSize: Int
+) = delegate<PersonAdapterViewModel>(
     layoutId = R.layout.recycler_item_person
 ) {
     val binding = RecyclerItemPersonBinding.bind(containerView)
-    binding.root.setOnClickListener { safeItem (onClick) }
+    binding.root.apply {
+        layoutParams?.run {
+            height = itemSize
+            width = itemSize
+            layoutParams = this
+        }
+        setOnClickListener { safeItem(onClick) }
+    }
     onBind {
         binding.ivItemPersonImage.load(it.imageUrl)
         binding.tvItemPersonTitle.text = it.title
