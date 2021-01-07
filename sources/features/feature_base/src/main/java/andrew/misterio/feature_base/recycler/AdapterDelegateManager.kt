@@ -8,7 +8,7 @@ internal class AdapterDelegateManager {
 
     fun hasDelegateForModel(model: AdapterViewModel): Boolean {
         for (i in 0 until delegates.size()) {
-            if (delegates[i]?.type == model::class) {
+            if (delegates[i]?.type?.isInstance(model) == true) {
                 return true
             }
         }
@@ -22,7 +22,7 @@ internal class AdapterDelegateManager {
 
     fun getItemViewType(model: AdapterViewModel): Int {
         for (i in 0 until delegates.size()) {
-            if (delegates[i]?.type == model::class) {
+            if (delegates[i]?.type?.isInstance(model) == true) {
                 return delegates.keyAt(i)
             }
         }

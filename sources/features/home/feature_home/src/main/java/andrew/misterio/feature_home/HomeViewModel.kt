@@ -4,11 +4,12 @@ import andrew.misterio.common.di_wrapper.CoroutineRunner
 import andrew.misterio.domain_home.GetCharactersInteractor
 import andrew.misterio.feature_base.recycler.AdapterViewModel
 import andrew.misterio.feature_base.recycler.delegates.LoaderAdapterViewModel
-import andrew.misterio.feature_home.adapterDelegates.PersonAdapterViewModel
+import andrew.misterio.feature_home.adapterDelegates.CharacterAdapterViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import arrow.syntax.function.andThen
+import kotlinx.coroutines.delay
 
 class HomeViewModel(
     private val getCharactersInteractor: GetCharactersInteractor,
@@ -27,7 +28,8 @@ class HomeViewModel(
     }
 
     fun reload() {
-        mutableListData.value = List(20) { PersonAdapterViewModel.EMPTY }
+        val blankViewModel = CharacterAdapterViewModel.EMPTY
+        mutableListData.value = List(20) { blankViewModel }
         getCharactersInteractor.resetPageCount()
         loadNextCharacters()
     }
@@ -37,8 +39,9 @@ class HomeViewModel(
     private fun loadNextCharacters() {
         coroutineRunner.coroutine(
             body = {
+                delay(2000)
                 mutableListData.value = currentList.apply {
-                    removeAll { it == PersonAdapterViewModel.EMPTY || it is LoaderAdapterViewModel }
+                    removeAll { it == CharacterAdapterViewModel.EMPTY || it is LoaderAdapterViewModel }
                     addAll(getCharactersInteractor.loadMoreCharacters().toViewObject)
                     add(LoaderAdapterViewModel)
                 }

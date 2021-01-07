@@ -7,7 +7,9 @@ apply from: "$rootDir/config.gradle"
 
 android {
     compileSdkVersion config.currentSDK
-
+    viewBinding {
+        enabled = true
+    }
     defaultConfig {
         minSdkVersion config.minSDK
         targetSdkVersion config.currentSDK

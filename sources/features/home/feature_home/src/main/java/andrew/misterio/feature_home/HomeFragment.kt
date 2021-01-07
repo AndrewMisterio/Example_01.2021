@@ -9,7 +9,7 @@ import andrew.misterio.feature_base.recycler.delegates.LoaderAdapterViewModel
 import andrew.misterio.feature_base.recycler.delegates.createLoaderDelegate
 import andrew.misterio.feature_base.screenWidth
 import andrew.misterio.feature_base.viewModel
-import andrew.misterio.feature_home.adapterDelegates.createPersonAdapterDelegate
+import andrew.misterio.feature_home.adapterDelegates.createCharacterAdapterDelegate
 import andrew.misterio.feature_home.databinding.FragmentHomeBinding
 import android.os.Bundle
 import android.view.View
@@ -38,7 +38,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         root.setOnRefreshListener(viewModel::reload)
 
         val adapter = RecyclerViewAdapter(
-            createPersonAdapterDelegate(
+            createCharacterAdapterDelegate(
                 onClick = viewModel::onItemClick,
                 itemSize = (root.context.screenWidth - itemSpacePx * (columns + 1)) / columns
             ),
