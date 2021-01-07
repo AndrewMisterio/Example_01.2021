@@ -7,6 +7,8 @@ class GetCharactersInteractor(
 ) {
     private var nextPageNumber: Int? = INIT_PAGE_NUMBER
 
+    val hasNextItems: Boolean get() = nextPageNumber != null
+
     fun resetPageCount() {
         nextPageNumber = INIT_PAGE_NUMBER
     }

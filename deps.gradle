@@ -42,21 +42,22 @@ ext {
             'kotlin'              : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
             'coroutines'          : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}",
             'androidx'            : [
-                    'annotations'     : "androidx.annotation:annotation:${versions.androidx}",
-                    'appCompat'       : "androidx.appcompat:appcompat:${versions.androidx}",
-                    'recyclerView'    : "androidx.recyclerview:recyclerview:${versions.androidX.recyclerView}",
-                    'cardView'        : "androidx.cardview:cardview:${versions.cardView}",
-                    'browser'         : "androidx.browser:browser:${versions.browser}",
-                    'design'          : "com.google.android.material:material:${versions.materialDesign}",
-                    'constraintLayout': "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
-                    'fragments'       : "androidx.fragment:fragment:${versions.androidX.fragments}",
-                    'fragmentKTX'     : "androidx.fragment:fragment-ktx:${versions.androidX.fragmentKTX}",
-                    'viewpager2'      : "androidx.viewpager2:viewpager2:${versions.androidX.viewpager2}",
-                    'lifecycleProcess': "androidx.lifecycle:lifecycle-process:${versions.androidX.lifecycleProcess}",
-                    'navigation'      : [
+                    'annotations'       : "androidx.annotation:annotation:${versions.androidx}",
+                    'appCompat'         : "androidx.appcompat:appcompat:${versions.androidx}",
+                    'recyclerView'      : "androidx.recyclerview:recyclerview:${versions.androidX.recyclerView}",
+                    'cardView'          : "androidx.cardview:cardview:${versions.cardView}",
+                    'browser'           : "androidx.browser:browser:${versions.browser}",
+                    'design'            : "com.google.android.material:material:${versions.materialDesign}",
+                    'constraintLayout'  : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
+                    'fragments'         : "androidx.fragment:fragment:${versions.androidX.fragments}",
+                    'fragmentKTX'       : "androidx.fragment:fragment-ktx:${versions.androidX.fragmentKTX}",
+                    'viewpager2'        : "androidx.viewpager2:viewpager2:${versions.androidX.viewpager2}",
+                    'lifecycleProcess'  : "androidx.lifecycle:lifecycle-process:${versions.androidX.lifecycleProcess}",
+                    'navigation'        : [
                             'fragmentKtx': 'androidx.navigation:navigation-fragment-ktx:2.2.2',
                             'uiKtx'      : 'androidx.navigation:navigation-ui-ktx:2.2.2'
-                    ]
+                    ],
+                    'swiperefreshlayout': "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
             ],
             'apollo'              : [
                     'runtime'   : "com.apollographql.apollo:apollo-runtime:${versions.apollo}",
