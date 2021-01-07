@@ -22,7 +22,7 @@ internal class StartViewModel(
 
     init {
         CoroutineScope(Dispatchers.Main).launch {
-            delay(3000)
+            delay(1000)
             navigate.value = Unit
         }
     }

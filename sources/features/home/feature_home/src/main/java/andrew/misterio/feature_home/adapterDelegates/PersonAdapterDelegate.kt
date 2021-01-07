@@ -1,14 +1,11 @@
 package andrew.misterio.feature_home.adapterDelegates
 
+import andrew.misterio.feature_base.isVisible
 import andrew.misterio.feature_base.load
 import andrew.misterio.feature_base.recycler.AdapterViewModel
 import andrew.misterio.feature_base.recycler.dsl.delegate
 import andrew.misterio.feature_home.R
 import andrew.misterio.feature_home.databinding.RecyclerItemPersonBinding
-import android.graphics.drawable.Drawable
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
-import androidx.core.view.ViewCompat
 
 fun createPersonAdapterDelegate(
     onClick: (AdapterViewModel) -> Unit,
@@ -26,12 +23,32 @@ fun createPersonAdapterDelegate(
         setOnClickListener { safeItem(onClick) }
     }
     onBind {
-        binding.ivItemPersonImage.load(it.imageUrl)
-        binding.tvItemPersonTitle.text = it.title
+        binding.ivItemPersonImage.load(
+            url = it.imageUrl,
+            placeHolderRes = R.drawable.ic_unknown_character,
+            errorImageRes = R.drawable.ic_unknown_character
+        )
+        if(it.title.isNotEmpty()) {
+            binding.tvItemPersonTitle.text = it.title
+            binding.tvItemPersonTitle.isVisible = true
+        } else {
+            binding.tvItemPersonTitle.isVisible = false
+        }
     }
 }
 
 data class PersonAdapterViewModel(
     val imageUrl: String,
     val title: String
-): AdapterViewModel
+): AdapterViewModel {
+    override fun isContentTheSame(item: AdapterViewModel): Boolean = when(item) {
+        is PersonAdapterViewModel -> imageUrl == item.imageUrl && title == item.title
+        else -> super.isContentTheSame(item)
+    }
+
+    override fun isItemTheSame(item: AdapterViewModel): Boolean = item is PersonAdapterViewModel
+
+    companion object {
+        val EMPTY by lazy { PersonAdapterViewModel(imageUrl = "", title = "") }
+    }
+}
