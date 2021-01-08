@@ -5,6 +5,6 @@ import org.koin.dsl.module
 
 val featureStartModule = module {
     scope<StartFragment> {
-        viewModel { (id: String) -> StartViewModel(id) }
+        viewModel { StartViewModel(get()) }
     }
 }

@@ -30,6 +30,8 @@ android {
 
 dependencies {
     implementation project(":feature_base")
+    implementation project(":repo_remote")
     implementation project(":common")
     implementation project(":navigation")
+    implementation deps.androidx.swiperefreshlayout
 }

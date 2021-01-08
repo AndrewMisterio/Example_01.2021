@@ -18,6 +18,7 @@ ext {
             'ktlint'          : '9.0.0',
             'arrow'           : '0.11.0',
             'androidX'        : [
+                    'navigation'      : '2.2.2',
                     'fragments'       : '1.2.0',
                     'fragmentKTX'     : '1.2.0',
                     'viewpager2'      : '1.0.0',
@@ -54,8 +55,9 @@ ext {
                     'viewpager2'        : "androidx.viewpager2:viewpager2:${versions.androidX.viewpager2}",
                     'lifecycleProcess'  : "androidx.lifecycle:lifecycle-process:${versions.androidX.lifecycleProcess}",
                     'navigation'        : [
-                            'fragmentKtx': 'androidx.navigation:navigation-fragment-ktx:2.2.2',
-                            'uiKtx'      : 'androidx.navigation:navigation-ui-ktx:2.2.2'
+                            'runtime'    : "androidx.navigation:navigation-runtime:${versions.androidX.navigation}",
+                            'fragmentKtx': "androidx.navigation:navigation-fragment-ktx:${versions.androidX.navigation}",
+                            'uiKtx'      : "androidx.navigation:navigation-ui-ktx:${versions.androidX.navigation}"
                     ],
                     'swiperefreshlayout': "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
             ],

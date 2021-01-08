@@ -1,5 +1,7 @@
 package andrew.misterio.feature_start
 
+import andrew.misterio.navigation.Router
+import andrew.misterio.navigation.commands.ToHome
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,7 +11,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 internal class StartViewModel(
-    private val name: String
+    private val router: Router
 ) : ViewModel() {
     val data: LiveData<ViewModelData> by lazy {
         MutableLiveData(
@@ -18,12 +20,11 @@ internal class StartViewModel(
             )
         )
     }
-    val navigate by lazy { MutableLiveData<Unit>() }
 
     init {
         CoroutineScope(Dispatchers.Main).launch {
             delay(1000)
-            navigate.value = Unit
+            router.navigate(ToHome)
         }
     }
 }

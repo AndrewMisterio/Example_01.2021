@@ -2,7 +2,6 @@ package andrew.misterio.feature_start
 
 import andrew.misterio.feature_base.BaseFragment
 import andrew.misterio.feature_base.load
-import andrew.misterio.feature_base.navigation.Navigator
 import andrew.misterio.feature_base.viewModel
 import andrew.misterio.feature_start.databinding.StartFragmentBinding
 import android.os.Bundle
@@ -11,8 +10,7 @@ import org.koin.core.scope.inject
 
 class StartFragment : BaseFragment(R.layout.start_fragment) {
 
-    private val viewModel: StartViewModel by viewModel { arrayOf("Nameeeee") }
-    private val navigator by inject<Navigator>()
+    private val viewModel: StartViewModel by viewModel ()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
          StartFragmentBinding.bind(view).apply {
@@ -33,6 +31,5 @@ class StartFragment : BaseFragment(R.layout.start_fragment) {
                 }
             }
         }
-        viewModel.navigate.observe { navigator.toHome() }
     }
 }

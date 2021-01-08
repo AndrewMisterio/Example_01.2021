@@ -43,9 +43,11 @@ dependencies {
 
     implementation(
             project(':common'),
+            project(':navigation'),
             project(':repo_remote'),
             project(':feature_base'),
             project(':feature_start'),
+            project(':feature_details'),
             project(':feature_home')
     )
     implementation deps.androidx.navigation.fragmentKtx

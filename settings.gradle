@@ -10,6 +10,9 @@ project(':common').projectDir = new File(rootDir, 'sources/common')
 include ':repo_remote'
 project(':repo_remote').projectDir = new File(rootDir, 'sources/repo_remote')
 
+include ':navigation'
+project(':navigation').projectDir = new File(rootDir, 'sources/navigation')
+
 // FEATURES:
 include ':feature_base'
 project(':feature_base').projectDir = new File(rootDir, 'sources/features/feature_base')
@@ -21,3 +24,6 @@ include ':feature_home'
 project(':feature_home').projectDir = new File(rootDir, 'sources/features/home/feature_home')
 include ':domain_home'
 project(':domain_home').projectDir = new File(rootDir, 'sources/features/home/domain_home')
+
+include ':feature_details'
+project(':feature_details').projectDir = new File(rootDir, 'sources/features/details/feature_details')

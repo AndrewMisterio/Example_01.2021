@@ -7,7 +7,6 @@ apply from: "$rootDir/config.gradle"
 
 android {
     compileSdkVersion config.currentSDK
-
     viewBinding {
         enabled = true
     }
@@ -29,7 +28,13 @@ android {
 }
 
 dependencies {
-    implementation project(":feature_base")
-    implementation project(":common")
-    implementation project(":navigation")
+    implementation (
+            deps.kotlin,
+            deps.androidx.navigation.runtime,
+            deps.androidx.appCompat,
+            deps.koin,
+            deps.arrowcore,
+            deps.arrowsyntax,
+            "com.github.terrakok:cicerone:6.6"
+    )
 }

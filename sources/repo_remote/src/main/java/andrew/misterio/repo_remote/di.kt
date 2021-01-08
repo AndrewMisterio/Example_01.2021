@@ -17,7 +17,6 @@ val repoRemoteModule = module {
             .serverUrl(BASE_URL)
             .okHttpClient(get())
             .build()
-
     }
 }
 

@@ -31,6 +31,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         }
     }
 
+    override fun onBackPressed() = viewModel.onBackClick()
+
     private fun FragmentHomeBinding.applyView(
         columns: Int,
         itemSpacePx: Int

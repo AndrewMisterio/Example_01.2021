@@ -5,6 +5,9 @@ import andrew.misterio.domain_home.GetCharactersInteractor
 import andrew.misterio.feature_base.recycler.AdapterViewModel
 import andrew.misterio.feature_base.recycler.delegates.LoaderAdapterViewModel
 import andrew.misterio.feature_home.adapterDelegates.CharacterAdapterViewModel
+import andrew.misterio.navigation.Router
+import andrew.misterio.navigation.commands.CloseApp
+import andrew.misterio.navigation.commands.ToDetails
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,7 +16,8 @@ import kotlinx.coroutines.delay
 
 class HomeViewModel(
     private val getCharactersInteractor: GetCharactersInteractor,
-    private val coroutineRunner: CoroutineRunner
+    private val coroutineRunner: CoroutineRunner,
+    private val router: Router
 ) : ViewModel() {
     private val mutableListData = MutableLiveData<List<AdapterViewModel>>()
     val listData: LiveData<List<AdapterViewModel>> get() = mutableListData
@@ -25,6 +29,10 @@ class HomeViewModel(
 
     init {
         reload()
+    }
+
+    fun onBackClick() {
+        router.navigate(CloseApp)
     }
 
     fun reload() {
@@ -49,8 +57,9 @@ class HomeViewModel(
         )
     }
 
-
     fun onItemClick(adapterViewModel: AdapterViewModel) {
-        // TODO navigation to details
+        if(adapterViewModel is CharacterAdapterViewModel) {
+            router.navigate(ToDetails(adapterViewModel.id))
+        }
     }
 }

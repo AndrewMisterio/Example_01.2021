@@ -33,5 +33,6 @@ dependencies {
     implementation project(":repo_remote")
     implementation project(":domain_home")
     implementation project(":common")
+    implementation project(":navigation")
     implementation deps.androidx.swiperefreshlayout
 }

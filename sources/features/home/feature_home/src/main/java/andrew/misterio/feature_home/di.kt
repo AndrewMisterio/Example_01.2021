@@ -7,7 +7,7 @@ import org.koin.dsl.module
 
 val featureHomeModule = module {
     scope<HomeFragment> {
-        scoped { HomeViewModel(get(), get()) }
+        scoped { HomeViewModel(get(), get(), get()) }
         scoped<CharactersRemoteRepository> { CharactersRemoteRepositoryImpl() }
         scoped { GetCharactersInteractor(get()) }
     }
