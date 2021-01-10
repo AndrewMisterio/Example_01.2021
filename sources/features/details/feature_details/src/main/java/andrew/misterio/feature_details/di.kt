@@ -5,6 +5,6 @@ import org.koin.dsl.module
 
 val featureDetailsModule = module {
     scope<DetailsFragment> {
-        viewModel { DetailsViewModel(get()) }
+        viewModel { (id: Int) -> DetailsViewModel(id, get()) }
     }
 }

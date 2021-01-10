@@ -15,6 +15,17 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars"/>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDetailsTitle"
+        style="@style/TextWithBG"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivDetailsImage" />
+
     <androidx.appcompat.widget.AppCompatButton
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:id="@+id/btnDetailsClose"

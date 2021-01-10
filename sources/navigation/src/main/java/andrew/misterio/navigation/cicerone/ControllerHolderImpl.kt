@@ -2,12 +2,13 @@ package andrew.misterio.navigation.cicerone
 
 import andrew.misterio.navigation.ControllerOwnerHolder
 import andrew.misterio.navigation.NavControllerOwner
+import andrew.misterio.navigation.ScreenMappers
 import androidx.lifecycle.LifecycleOwner
-import arrow.core.andThen
 import com.github.terrakok.cicerone.NavigatorHolder
 
 internal class ControllerHolderImpl(
-    private val holder: NavigatorHolder
+    private val holder: NavigatorHolder,
+    private val mapper: ScreenMappers
 ): ControllerOwnerHolder {
 
     override fun onPause(source: LifecycleOwner) {
@@ -15,6 +16,11 @@ internal class ControllerHolderImpl(
     }
 
     override fun onResume(source: LifecycleOwner) {
-        (source as? NavControllerOwner)?.let(::NavigatorImpl andThen holder::setNavigator)
+        holder.setNavigator(
+            NavigatorImpl(
+                controllerOwner = source as? NavControllerOwner?:return,
+                screenMappers = mapper
+            )
+        )
     }
 }

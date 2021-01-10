@@ -7,5 +7,5 @@ import org.koin.dsl.ScopeDSL
 val navigationCiceroneDefinitions: ScopeDSL.()-> Unit = {
     val cicerone = Cicerone.create(CiceroneRouterImpl())
     scoped<Router> { RouterImpl(cicerone.router) }
-    scoped<ControllerOwnerHolder> { ControllerHolderImpl(cicerone.getNavigatorHolder()) }
+    scoped<ControllerOwnerHolder> { ControllerHolderImpl(cicerone.getNavigatorHolder(), get()) }
 }

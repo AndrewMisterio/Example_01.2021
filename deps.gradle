@@ -28,10 +28,11 @@ ext {
     ]
 
     buildPlugins = [
-            'gradle': "com.android.tools.build:gradle:${versions.gradle}",
-            'kotlin': "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
-            'ktlint': "org.jlleitschuh.gradle:ktlint-gradle:${versions.ktlint}",
-            'apollo': "com.apollographql.apollo:apollo-gradle-plugin:${versions.apollo}"
+            'gradle'   : "com.android.tools.build:gradle:${versions.gradle}",
+            'kotlin'   : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
+            'parcelize': "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
+            'ktlint'   : "org.jlleitschuh.gradle:ktlint-gradle:${versions.ktlint}",
+            'apollo'   : "com.apollographql.apollo:apollo-gradle-plugin:${versions.apollo}"
     ]
 
     deps = [
@@ -56,6 +57,7 @@ ext {
                     'lifecycleProcess'  : "androidx.lifecycle:lifecycle-process:${versions.androidX.lifecycleProcess}",
                     'navigation'        : [
                             'runtime'    : "androidx.navigation:navigation-runtime:${versions.androidX.navigation}",
+                            'common'     : "androidx.navigation:navigation-common:${versions.androidX.navigation}",
                             'fragmentKtx': "androidx.navigation:navigation-fragment-ktx:${versions.androidX.navigation}",
                             'uiKtx'      : "androidx.navigation:navigation-ui-ktx:${versions.androidX.navigation}"
                     ],

@@ -7,7 +7,8 @@ import andrew.misterio.feature_base.recycler.delegates.LoaderAdapterViewModel
 import andrew.misterio.feature_home.adapterDelegates.CharacterAdapterViewModel
 import andrew.misterio.navigation.Router
 import andrew.misterio.navigation.commands.CloseApp
-import andrew.misterio.navigation.commands.ToDetails
+import andrew.misterio.navigation.commands.Forward
+import andrew.misterio.navigation.commands.screens.ToDetails
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -59,7 +60,7 @@ class HomeViewModel(
 
     fun onItemClick(adapterViewModel: AdapterViewModel) {
         if(adapterViewModel is CharacterAdapterViewModel) {
-            router.navigate(ToDetails(adapterViewModel.id))
+            router.navigate(Forward(ToDetails(adapterViewModel.id)))
         }
     }
 }

@@ -36,7 +36,8 @@ dependencies {
             deps.androidx.fragments,
             deps.androidx.viewpager2,
             deps.androidx.design,
-            deps.androidx.cardView
+            deps.androidx.cardView,
+            deps.androidx.navigation.common
     )
     api(deps.androidx.constraintLayout) {
         force = true

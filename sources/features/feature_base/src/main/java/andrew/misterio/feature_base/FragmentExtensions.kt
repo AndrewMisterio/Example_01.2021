@@ -11,10 +11,9 @@ import org.koin.core.scope.Scope
 
 inline fun <reified T : ViewModel> BaseFragment.viewModel(
     name: String? = null,
-    defParams: () -> Array<Any> = { arrayOf() }
+    noinline defParams: () -> Array<Any> = { arrayOf() }
 ): Lazy<T> = scope.viewModel(
     qualifier = name?.let(::named),
     parameters = defParams andThen ::parametersOf,
     owner = { ViewModelOwner.Companion.from(viewModelStore) }
 )
-

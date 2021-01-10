@@ -1,7 +1,8 @@
 package andrew.misterio.feature_start
 
 import andrew.misterio.navigation.Router
-import andrew.misterio.navigation.commands.ToHome
+import andrew.misterio.navigation.commands.Forward
+import andrew.misterio.navigation.commands.screens.ToHome
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,7 +25,7 @@ internal class StartViewModel(
     init {
         CoroutineScope(Dispatchers.Main).launch {
             delay(1000)
-            router.navigate(ToHome)
+            router.navigate(Forward(ToHome))
         }
     }
 }
