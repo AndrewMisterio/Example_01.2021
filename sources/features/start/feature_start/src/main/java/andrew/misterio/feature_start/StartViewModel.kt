@@ -1,8 +1,8 @@
 package andrew.misterio.feature_start
 
+import andrew.misterio.feature_base.navigation.screens.ToHome
 import andrew.misterio.navigation.Router
 import andrew.misterio.navigation.commands.Forward
-import andrew.misterio.navigation.commands.screens.ToHome
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package andrew.misterio.navigation.commands.screens
+package andrew.misterio.feature_base.navigation.screens
 
 import andrew.misterio.navigation.Screen
 

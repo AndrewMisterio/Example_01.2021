@@ -11,7 +11,7 @@
         android:label="main_fragment"
         tools:layout="@layout/start_fragment" >
         <action
-            android:id="@id/navigation_to_home"
+            android:id="@+id/navigation_to_home"
             app:destination="@id/homeFragment"
             app:enterAnim="@anim/fragment_fade_enter"
             app:popUpToInclusive="true" />
@@ -21,7 +21,7 @@
         android:name="andrew.misterio.feature_home.HomeFragment"
         android:label="HomeFragment" >
         <action
-            android:id="@id/navigation_to_details"
+            android:id="@+id/navigation_to_details"
             app:destination="@+id/detailsFragment"
             app:enterAnim="@anim/fragment_fade_enter"
             app:exitAnim="@anim/fragment_fade_exit"

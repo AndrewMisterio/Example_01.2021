@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    implementation(project(':common'))
+    implementation(project(':common'), project(':navigation'))
     api(
             deps.koinAndroidViewmodel,
             deps.kotlin,

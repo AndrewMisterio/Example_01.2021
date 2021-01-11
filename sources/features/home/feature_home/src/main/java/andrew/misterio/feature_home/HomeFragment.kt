@@ -15,7 +15,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.transition.TransitionInflater
 import org.koin.core.scope.inject
 
 class HomeFragment : BaseFragment(R.layout.fragment_home) {

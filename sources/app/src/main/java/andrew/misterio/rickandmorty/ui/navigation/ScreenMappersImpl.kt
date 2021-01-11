@@ -1,10 +1,10 @@
-package andrew.misterio.rickandmorty.ui
+package andrew.misterio.rickandmorty.ui.navigation
 
+import andrew.misterio.feature_base.navigation.screens.ToDetails
+import andrew.misterio.feature_base.navigation.screens.ToHome
 import andrew.misterio.feature_details.DetailsFragment
 import andrew.misterio.navigation.Screen
 import andrew.misterio.navigation.ScreenMappers
-import andrew.misterio.navigation.commands.screens.ToDetails
-import andrew.misterio.navigation.commands.screens.ToHome
 import andrew.misterio.rickandmorty.R
 import android.os.Bundle
 
@@ -17,7 +17,7 @@ class ScreenMappersImpl : ScreenMappers {
     }
 
     override fun getArgsBundle(screen: Screen): Bundle? = when (screen) {
-        is ToDetails -> DetailsFragment.createArgs(screen.id)
+        is ToDetails -> DetailsFragment.createArgs(screen)
         else -> null
     }
 }
