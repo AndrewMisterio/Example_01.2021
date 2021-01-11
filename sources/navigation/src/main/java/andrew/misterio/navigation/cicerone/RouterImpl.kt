@@ -5,6 +5,6 @@ import andrew.misterio.navigation.Router
 
 internal class RouterImpl(
     private val router: CiceroneRouterImpl
-): Router {
+) : Router {
     override fun navigate(command: Command) = router.execute(CommandImpl(command))
 }

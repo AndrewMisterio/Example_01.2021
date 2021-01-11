@@ -10,4 +10,4 @@ fun createLoaderDelegate(onLoaderVisible: () -> Unit) = delegate<LoaderAdapterVi
     onBind { onLoaderVisible() }
 }
 
-object LoaderAdapterViewModel: AdapterViewModel
+object LoaderAdapterViewModel : AdapterViewModel

@@ -6,26 +6,24 @@ import andrew.misterio.feature_base.viewModel
 import andrew.misterio.feature_start.databinding.StartFragmentBinding
 import android.os.Bundle
 import android.view.View
-import org.koin.core.scope.inject
 
 class StartFragment : BaseFragment(R.layout.start_fragment) {
 
-    private val viewModel: StartViewModel by viewModel ()
+    private val viewModel: StartViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-         StartFragmentBinding.bind(view).apply {
-
+        StartFragmentBinding.bind(view).apply{
             viewModel.data.observe { data ->
                 ivStartImage.load(data.mainImageUrl)
                 root.post {
                     tvStartTitle.animate().apply {
-                    duration = 0
-                    y(root.height.toFloat())
-                    start()
-                }
+                        duration = 0
+                        y(root.height.toFloat())
+                        start()
+                    }
                     tvStartTitle.animate().apply {
                         duration = 600
-                        y(root.height /1.3f)
+                        y(root.height / 1.3f)
                         start()
                     }
                 }

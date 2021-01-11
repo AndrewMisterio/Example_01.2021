@@ -8,7 +8,6 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 
 fun ImageView.load(
@@ -25,7 +24,7 @@ fun ImageView.load(
             placeHolderRes?.let(::placeholder)
             errorImageRes?.let(::error)
             diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-            listener(object :RequestListener<Drawable?> {
+            listener(object : RequestListener<Drawable?> {
                 override fun onLoadFailed(
                     e: GlideException?,
                     model: Any?,

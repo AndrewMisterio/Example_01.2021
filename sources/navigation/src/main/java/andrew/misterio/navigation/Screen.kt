@@ -1,3 +1,9 @@
 package andrew.misterio.navigation
 
-interface Screen
+import android.os.Parcelable
+import androidx.annotation.IdRes
+
+interface Screen : Parcelable {
+    @get:IdRes
+    val actionId: Int
+}

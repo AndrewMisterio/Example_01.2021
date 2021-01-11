@@ -1,22 +1,21 @@
 package andrew.misterio.feature_details
 
 import andrew.misterio.feature_base.BaseFragment
-import andrew.misterio.feature_base.arguments
-import andrew.misterio.feature_base.argumentsOf
 import andrew.misterio.feature_base.load
 import andrew.misterio.feature_base.navigation.SharedElementsNames
-import andrew.misterio.feature_base.navigation.screens.ToDetails
+import andrew.misterio.feature_base.navigation.screens.ToDetailsParams
 import andrew.misterio.feature_base.viewModel
 import andrew.misterio.feature_details.databinding.FragmentDetailsBinding
+import andrew.misterio.navigation.navArgs
 import android.os.Bundle
 import android.view.View
 import androidx.transition.TransitionInflater
 
 class DetailsFragment : BaseFragment(R.layout.fragment_details) {
 
-    private val idArg: Int by arguments()
+    private val params: ToDetailsParams? by ::getArguments.navArgs()
 
-    private val viewModel by viewModel<DetailsViewModel> { arrayOf(idArg) }
+    private val viewModel by viewModel<DetailsViewModel> { arrayOf(params?.id ?: -1) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,10 +42,4 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
     }
 
     override fun onBackPressed() = viewModel.onBackClick()
-
-    companion object {
-        fun createArgs(toDetails: ToDetails): Bundle = argumentsOf(
-            DetailsFragment::idArg to toDetails.id
-        )
-    }
 }

@@ -4,10 +4,6 @@ import andrew.misterio.common.di_wrapper.replace
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class RecyclerViewAdapter(
     vararg delegates: AdapterDelegate

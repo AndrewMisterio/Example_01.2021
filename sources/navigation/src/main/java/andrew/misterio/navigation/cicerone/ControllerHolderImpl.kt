@@ -1,26 +1,21 @@
 package andrew.misterio.navigation.cicerone
 
-import andrew.misterio.navigation.ControllerOwnerHolder
-import andrew.misterio.navigation.NavControllerOwner
-import andrew.misterio.navigation.ScreenMappers
+import andrew.misterio.navigation.jetpack.ControllerOwnerHolder
+import andrew.misterio.navigation.jetpack.NavControllerOwner
 import androidx.lifecycle.LifecycleOwner
+import arrow.core.andThen
 import com.github.terrakok.cicerone.NavigatorHolder
 
 internal class ControllerHolderImpl(
-    private val holder: NavigatorHolder,
-    private val mapper: ScreenMappers
-): ControllerOwnerHolder {
+    private val holder: NavigatorHolder
+) : ControllerOwnerHolder {
 
     override fun onPause(source: LifecycleOwner) {
         holder.removeNavigator()
     }
 
     override fun onResume(source: LifecycleOwner) {
-        holder.setNavigator(
-            NavigatorImpl(
-                controllerOwner = source as? NavControllerOwner?:return,
-                screenMappers = mapper
-            )
-        )
+        (source as? NavControllerOwner)
+            ?.let(::NavigatorImpl andThen holder::setNavigator)
     }
 }

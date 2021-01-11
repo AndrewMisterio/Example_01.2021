@@ -1,18 +1,17 @@
 package andrew.misterio.navigation.cicerone
 
-import andrew.misterio.navigation.NavControllerOwner
-import andrew.misterio.navigation.ScreenMappers
+import andrew.misterio.navigation.NAVIGATION_ARG_KEY
 import andrew.misterio.navigation.commands.Back
 import andrew.misterio.navigation.commands.CloseApp
 import andrew.misterio.navigation.commands.Forward
+import andrew.misterio.navigation.jetpack.NavControllerOwner
+import android.os.Bundle
 import androidx.navigation.NavController
 import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.Navigator
-import org.koin.java.KoinJavaComponent.getKoin
 
 internal class NavigatorImpl(
-    private val controllerOwner: NavControllerOwner,
-    private val screenMappers: ScreenMappers
+    private val controllerOwner: NavControllerOwner
 ) : Navigator {
 
     override fun applyCommands(commands: Array<out Command>) {
@@ -31,12 +30,10 @@ internal class NavigatorImpl(
         }
     }
 
-    private fun NavController.forward(command: Forward) {
-        navigate(
-            screenMappers.getActionId(command.screen),
-            screenMappers.getArgsBundle(command.screen),
-            null,
-            command.extras
-        )
-    }
+    private fun NavController.forward(command: Forward) = navigate(
+        command.screen.actionId,
+        Bundle().apply { putParcelable(NAVIGATION_ARG_KEY, command.screen) },
+        null,
+        command.extras
+    )
 }

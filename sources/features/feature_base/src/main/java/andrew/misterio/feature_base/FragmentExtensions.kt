@@ -6,13 +6,13 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import arrow.syntax.function.andThen
+import java.io.Serializable
+import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
 import org.koin.android.viewmodel.ViewModelOwner
 import org.koin.android.viewmodel.scope.viewModel
 import org.koin.core.parameter.parametersOf
 import org.koin.core.qualifier.named
-import java.io.Serializable
-import kotlin.properties.ReadWriteProperty
-import kotlin.reflect.KProperty
 
 inline fun <reified T : ViewModel> BaseFragment.viewModel(
     name: String? = null,
@@ -27,7 +27,7 @@ fun argumentsOf(vararg values: Pair<KProperty<*>, Any>): Bundle {
     return bundleOf(*(values.map { it.first.name to it.second }.toTypedArray()))
 }
 
-fun <T: Any> arguments(default: T? = null): ReadWriteProperty<Fragment, T> = object : ReadWriteProperty<Fragment, T> {
+fun <T : Any> arguments(default: T? = null): ReadWriteProperty<Fragment, T> = object : ReadWriteProperty<Fragment, T> {
 
     @Suppress("UNCHECKED_CAST")
     override fun getValue(thisRef: Fragment, property: KProperty<*>): T {

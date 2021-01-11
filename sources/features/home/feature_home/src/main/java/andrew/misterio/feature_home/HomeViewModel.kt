@@ -2,7 +2,7 @@ package andrew.misterio.feature_home
 
 import andrew.misterio.common.di_wrapper.CoroutineRunner
 import andrew.misterio.domain_home.GetCharactersInteractor
-import andrew.misterio.feature_base.navigation.screens.ToDetails
+import andrew.misterio.feature_base.navigation.screens.ToDetailsParams
 import andrew.misterio.feature_base.recycler.AdapterViewModel
 import andrew.misterio.feature_base.recycler.delegates.LoaderAdapterViewModel
 import andrew.misterio.feature_home.adapterDelegates.CharacterAdapterViewModel
@@ -61,8 +61,8 @@ class HomeViewModel(
         if (adapterViewModel is CharacterAdapterViewModel) {
             router.navigate(
                 Forward(
-                    ToDetails(adapterViewModel.id),
-                    extras
+                    screen = ToDetailsParams(adapterViewModel.id),
+                    extras = extras
                 )
             )
         }

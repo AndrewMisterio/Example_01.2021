@@ -2,7 +2,6 @@ package andrew.misterio.feature_base.recycler.decorators
 
 import android.graphics.Rect
 import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -14,7 +13,7 @@ class SpaceItemDecorator(
     private val layers: Int = 1,
     @RecyclerView.Orientation
     private val orientation: Int = RecyclerView.VERTICAL
-): RecyclerView.ItemDecoration() {
+) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect,
@@ -25,13 +24,13 @@ class SpaceItemDecorator(
         val pos = parent.getChildAdapterPosition(view)
         val currentLayer = pos % layers
         val posInLayer = pos / layers
-        val lastPosInLayer = parent.adapter?.itemCount?:0
+        val lastPosInLayer = parent.adapter?.itemCount ?: 0
 
         outRect.set(
-            if(currentLayer == 0) outerSpacePx else innerSpacePx/2,
-            if(posInLayer == 0) outerSpacePx else innerSpacePx/2,
-            if(currentLayer == layers-1) outerSpacePx else innerSpacePx/2,
-            if(posInLayer == lastPosInLayer-1) outerSpacePx else innerSpacePx/2
+            if (currentLayer == 0) outerSpacePx else innerSpacePx / 2,
+            if (posInLayer == 0) outerSpacePx else innerSpacePx / 2,
+            if (currentLayer == layers - 1) outerSpacePx else innerSpacePx / 2,
+            if (posInLayer == lastPosInLayer - 1) outerSpacePx else innerSpacePx / 2
         )
     }
 }

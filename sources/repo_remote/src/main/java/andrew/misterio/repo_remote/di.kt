@@ -13,10 +13,9 @@ val repoRemoteModule = module {
     single<ApolloClient> {
         ApolloClient
             .builder()
-            //TODO Change to params from file.properties
+            // TODO Change to params from file.properties
             .serverUrl(BASE_URL)
             .okHttpClient(get())
             .build()
     }
 }
-

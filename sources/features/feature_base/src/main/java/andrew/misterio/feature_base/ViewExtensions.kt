@@ -9,7 +9,7 @@ import androidx.annotation.LayoutRes
 
 var View.isVisible: Boolean get() = visibility == View.VISIBLE
 set(value) {
-    visibility = when(value) {
+    visibility = when (value) {
         true -> View.VISIBLE
         false -> View.GONE
     }

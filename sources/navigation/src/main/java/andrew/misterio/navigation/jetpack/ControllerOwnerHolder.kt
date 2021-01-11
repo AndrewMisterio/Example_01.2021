@@ -1,13 +1,13 @@
-package andrew.misterio.navigation
+package andrew.misterio.navigation.jetpack
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 
-interface ControllerOwnerHolder: LifecycleEventObserver {
+interface ControllerOwnerHolder : LifecycleEventObserver {
 
     override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
-        when(event) {
+        when (event) {
             Lifecycle.Event.ON_RESUME -> onResume(source)
             Lifecycle.Event.ON_PAUSE -> onPause(source)
             else -> {

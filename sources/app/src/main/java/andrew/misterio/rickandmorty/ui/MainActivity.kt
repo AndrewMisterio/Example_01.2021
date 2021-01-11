@@ -1,9 +1,9 @@
 package andrew.misterio.rickandmorty.ui
 
-import andrew.misterio.navigation.ControllerOwnerHolder
-import andrew.misterio.navigation.NavControllerOwner
 import andrew.misterio.navigation.Router
 import andrew.misterio.navigation.commands.Back
+import andrew.misterio.navigation.jetpack.ControllerOwnerHolder
+import andrew.misterio.navigation.jetpack.NavControllerOwner
 import andrew.misterio.rickandmorty.databinding.MainActivityBinding
 import android.os.Bundle
 import android.view.LayoutInflater

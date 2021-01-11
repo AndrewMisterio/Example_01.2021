@@ -1,4 +1,4 @@
-package andrew.misterio.navigation
+package andrew.misterio.navigation.jetpack
 
 import androidx.navigation.NavController
 

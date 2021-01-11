@@ -42,7 +42,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     ) {
         root.setOnRefreshListener(viewModel::reload)
 
-        if(!::adapter.isInitialized) {
+        if (!::adapter.isInitialized) {
             adapter = RecyclerViewAdapter(
                 createCharacterAdapterDelegate(
                     onClick = viewModel::onItemClick,
