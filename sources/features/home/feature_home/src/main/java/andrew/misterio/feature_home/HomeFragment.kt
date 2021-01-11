@@ -15,19 +15,23 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.TransitionInflater
 import org.koin.core.scope.inject
 
 class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     private val viewModel by viewModel<HomeViewModel>()
     private val res by inject<Resources>()
+    private lateinit var adapter: RecyclerViewAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        postponeEnterTransition()
         FragmentHomeBinding.bind(view).apply {
             applyView(
                 columns = res.getInteger(R.integer.columns_count),
                 itemSpacePx = res.getPixelsSize(R.dimen.item_space)
             )
+            rvHomeList.post { startPostponedEnterTransition() }
         }
     }
 
@@ -39,13 +43,15 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     ) {
         root.setOnRefreshListener(viewModel::reload)
 
-        val adapter = RecyclerViewAdapter(
-            createCharacterAdapterDelegate(
-                onClick = viewModel::onItemClick,
-                itemSize = (root.context.screenWidth - itemSpacePx * (columns + 1)) / columns
-            ),
-            createLoaderDelegate(viewModel::onLoaderVisible)
-        )
+        if(!::adapter.isInitialized) {
+            adapter = RecyclerViewAdapter(
+                createCharacterAdapterDelegate(
+                    onClick = viewModel::onItemClick,
+                    itemSize = (root.context.screenWidth - itemSpacePx * (columns + 1)) / columns
+                ),
+                createLoaderDelegate(viewModel::onLoaderVisible)
+            )
+        }
         rvHomeList.adapter = adapter
         viewModel.listData.observe {
             root.isRefreshing = false

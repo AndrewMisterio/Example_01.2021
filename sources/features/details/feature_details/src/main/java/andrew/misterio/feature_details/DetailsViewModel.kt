@@ -17,6 +17,7 @@ class DetailsViewModel(
 
     init {
         mutableData.value = DetailsData(
+            id = id,
             imageUrl = "https://rickandmortyapi.com/api/character/avatar/$id.jpeg",
             title = "Ideal Jerry #$id"
         )

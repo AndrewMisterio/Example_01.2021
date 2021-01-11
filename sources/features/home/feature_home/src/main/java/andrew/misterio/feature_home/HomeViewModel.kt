@@ -12,6 +12,7 @@ import andrew.misterio.navigation.commands.screens.ToDetails
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.Navigator
 import arrow.syntax.function.andThen
 import kotlinx.coroutines.delay
 
@@ -48,7 +49,7 @@ class HomeViewModel(
     private fun loadNextCharacters() {
         coroutineRunner.coroutine(
             body = {
-                delay(2000)
+                delay(1000)
                 mutableListData.value = currentList.apply {
                     removeAll { it == CharacterAdapterViewModel.EMPTY || it is LoaderAdapterViewModel }
                     addAll(getCharactersInteractor.loadMoreCharacters().toViewObject)
@@ -58,9 +59,14 @@ class HomeViewModel(
         )
     }
 
-    fun onItemClick(adapterViewModel: AdapterViewModel) {
-        if(adapterViewModel is CharacterAdapterViewModel) {
-            router.navigate(Forward(ToDetails(adapterViewModel.id)))
+    fun onItemClick(adapterViewModel: AdapterViewModel, extras: Navigator.Extras) {
+        if (adapterViewModel is CharacterAdapterViewModel) {
+            router.navigate(
+                Forward(
+                    ToDetails(adapterViewModel.id),
+                    extras
+                )
+            )
         }
     }
 }

@@ -32,6 +32,7 @@ dependencies {
     api(
             deps.koinAndroidViewmodel,
             deps.kotlin,
+            deps.androidx.coreKtx,
             deps.androidx.appCompat,
             deps.androidx.fragments,
             deps.androidx.viewpager2,

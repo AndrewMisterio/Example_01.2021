@@ -44,6 +44,7 @@ ext {
             'kotlin'              : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
             'coroutines'          : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}",
             'androidx'            : [
+                    'coreKtx'       : "androidx.core:core-ktx:1.1.0",
                     'annotations'       : "androidx.annotation:annotation:${versions.androidx}",
                     'appCompat'         : "androidx.appcompat:appcompat:${versions.androidx}",
                     'recyclerView'      : "androidx.recyclerview:recyclerview:${versions.androidX.recyclerView}",

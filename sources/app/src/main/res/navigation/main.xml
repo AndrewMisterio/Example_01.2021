@@ -13,6 +13,7 @@
         <action
             android:id="@id/navigation_to_home"
             app:destination="@id/homeFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -21,7 +22,13 @@
         android:label="HomeFragment" >
         <action
             android:id="@id/navigation_to_details"
-            app:destination="@+id/detailsFragment" />
+            app:destination="@+id/detailsFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpToInclusive="false"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"

@@ -7,8 +7,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivDetailsImage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

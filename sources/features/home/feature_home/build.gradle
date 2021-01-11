@@ -35,4 +35,5 @@ dependencies {
     implementation project(":common")
     implementation project(":navigation")
     implementation deps.androidx.swiperefreshlayout
+    implementation deps.androidx.navigation.fragmentKtx
 }
