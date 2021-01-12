@@ -9,7 +9,9 @@ import andrew.misterio.feature_details.databinding.FragmentDetailsBinding
 import andrew.misterio.navigation.navArgs
 import android.os.Bundle
 import android.view.View
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import androidx.transition.TransitionInflater
+import arrow.syntax.function.invoke
 
 class DetailsFragment : BaseFragment(R.layout.fragment_details) {
 
@@ -21,6 +23,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         super.onCreate(savedInstanceState)
         TransitionInflater.from(context)
             .inflateTransition(R.transition.to_details_transition)
+            .apply { interpolator = LinearOutSlowInInterpolator() }
             .also(::setSharedElementEnterTransition)
             .let(::setSharedElementReturnTransition)
     }
@@ -28,7 +31,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val binding = FragmentDetailsBinding.bind(view)
         postponeEnterTransition()
-        viewModel.data.observe { data -> binding.applyData(data, ::startPostponedEnterTransition) }
+        viewModel.data.observe(binding::applyData.invoke(p2 = ::startPostponedEnterTransition))
         binding.btnDetailsClose.setOnClickListener { viewModel.onBackClick() }
     }
 
