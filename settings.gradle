@@ -27,3 +27,5 @@ project(':domain_home').projectDir = new File(rootDir, 'sources/features/home/do
 
 include ':feature_details'
 project(':feature_details').projectDir = new File(rootDir, 'sources/features/details/feature_details')
+include ':domain_details'
+project(':domain_details').projectDir = new File(rootDir, 'sources/features/details/domain_details')

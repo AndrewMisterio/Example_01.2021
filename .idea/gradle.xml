@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/sources/app" />
             <option value="$PROJECT_DIR$/sources/common" />
+            <option value="$PROJECT_DIR$/sources/features/details/domain_details" />
             <option value="$PROJECT_DIR$/sources/features/details/feature_details" />
             <option value="$PROJECT_DIR$/sources/features/feature_base" />
             <option value="$PROJECT_DIR$/sources/features/home/domain_home" />

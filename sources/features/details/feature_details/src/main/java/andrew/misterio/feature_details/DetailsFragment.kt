@@ -4,8 +4,11 @@ import andrew.misterio.feature_base.BaseFragment
 import andrew.misterio.feature_base.load
 import andrew.misterio.feature_base.navigation.SharedElementsNames
 import andrew.misterio.feature_base.navigation.screens.ToDetailsParams
+import andrew.misterio.feature_base.recycler.RecyclerViewAdapter
+import andrew.misterio.feature_base.recycler.decorators.SpaceItemDecorator
 import andrew.misterio.feature_base.viewModel
 import andrew.misterio.feature_details.databinding.FragmentDetailsBinding
+import andrew.misterio.feature_details.recycler_delegates.createDetailsListDelegate
 import andrew.misterio.navigation.navArgs
 import android.os.Bundle
 import android.view.View
@@ -31,23 +34,27 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val binding = FragmentDetailsBinding.bind(view)
         postponeEnterTransition()
-        viewModel.data.observe(binding::applyData.invoke(p2 = ::startPostponedEnterTransition))
-        binding.btnDetailsClose.setOnClickListener { viewModel.onBackClick() }
+        binding.rvDetailsList.apply {
+            adapter = RecyclerViewAdapter(createDetailsListDelegate())
+            addItemDecoration(SpaceItemDecorator(16))
+        }
+        viewModel.viewData.observe(binding::applyData.invoke(p2 = ::startPostponedEnterTransition))
     }
 
     override fun onBackPressed() = viewModel.onBackClick()
 }
 
 private fun FragmentDetailsBinding.applyData(
-    data: DetailsData,
+    viewData: DetailsViewData,
     onImageLoadSuccess: () -> Unit
 ) {
+    (rvDetailsList.adapter as? RecyclerViewAdapter)?.setList(viewData.list)
     ivDetailsImage.apply {
-        load(data.imageUrl, onSuccess = onImageLoadSuccess)
-        transitionName = SharedElementsNames.image(data.id)
+        load(viewData.imageUrl, onSuccess = onImageLoadSuccess)
+        transitionName = SharedElementsNames.image(viewData.id)
     }
     tvDetailsTitle.apply {
-        text = data.title
-        transitionName = SharedElementsNames.text(data.id)
+        text = viewData.title
+        transitionName = SharedElementsNames.text(viewData.id)
     }
 }
