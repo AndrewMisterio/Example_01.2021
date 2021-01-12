@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 
 var View.isVisible: Boolean get() = visibility == View.VISIBLE
-set(value) {
-    visibility = when (value) {
-        true -> View.VISIBLE
-        false -> View.GONE
+    set(value) {
+        visibility = when (value) {
+            true -> View.VISIBLE
+            false -> View.GONE
+        }
     }
-}
 
 fun ViewGroup.inflate(@LayoutRes layoutId: Int): View = LayoutInflater.from(context)
     .inflate(layoutId, this, false)

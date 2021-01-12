@@ -11,11 +11,13 @@ class RatioImageView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : AppCompatImageView(
-    context, attrs, defStyleAttr
+    context,
+    attrs,
+    defStyleAttr
 ) {
 
     var ratio: Float = DISABLED_RATIO_VALUE
-    private set
+        private set
 
     init {
         onAttrs(attrs, R.styleable.RatioImageView) {

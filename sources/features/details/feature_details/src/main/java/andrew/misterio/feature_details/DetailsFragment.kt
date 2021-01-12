@@ -28,18 +28,23 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val binding = FragmentDetailsBinding.bind(view)
         postponeEnterTransition()
-        viewModel.data.observe { data ->
-            binding.ivDetailsImage.apply {
-                load(data.imageUrl, onSuccess = ::startPostponedEnterTransition)
-                transitionName = SharedElementsNames.image(data.id)
-            }
-            binding.tvDetailsTitle.apply {
-                text = data.title
-                transitionName = SharedElementsNames.text(data.id)
-            }
-        }
+        viewModel.data.observe { data -> binding.applyData(data, ::startPostponedEnterTransition) }
         binding.btnDetailsClose.setOnClickListener { viewModel.onBackClick() }
     }
 
     override fun onBackPressed() = viewModel.onBackClick()
+}
+
+private fun FragmentDetailsBinding.applyData(
+    data: DetailsData,
+    onImageLoadSuccess: () -> Unit
+) {
+    ivDetailsImage.apply {
+        load(data.imageUrl, onSuccess = onImageLoadSuccess)
+        transitionName = SharedElementsNames.image(data.id)
+    }
+    tvDetailsTitle.apply {
+        text = data.title
+        transitionName = SharedElementsNames.text(data.id)
+    }
 }

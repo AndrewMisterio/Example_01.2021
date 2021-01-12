@@ -6,13 +6,13 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import arrow.syntax.function.andThen
-import java.io.Serializable
-import kotlin.properties.ReadWriteProperty
-import kotlin.reflect.KProperty
 import org.koin.android.viewmodel.ViewModelOwner
 import org.koin.android.viewmodel.scope.viewModel
 import org.koin.core.parameter.parametersOf
 import org.koin.core.qualifier.named
+import java.io.Serializable
+import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
 
 inline fun <reified T : ViewModel> BaseFragment.viewModel(
     name: String? = null,

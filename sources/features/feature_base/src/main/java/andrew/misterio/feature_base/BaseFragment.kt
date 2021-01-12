@@ -23,8 +23,10 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId), Koin
                 override fun handleOnBackPressed() = onBackPressed()
             }
         )
-        (parentFragment as? KoinScopeComponent
-            ?: activity as? KoinScopeComponent)
+        (
+            parentFragment as? KoinScopeComponent
+                ?: activity as? KoinScopeComponent
+            )
             ?.let { scope.linkTo(it.scope) }
     }
 
