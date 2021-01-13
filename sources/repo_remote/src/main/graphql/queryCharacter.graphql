@@ -13,6 +13,8 @@ query Character($id: ID!){
     }
     image
     episode {
+      id
+      episode
       name
     }
   }

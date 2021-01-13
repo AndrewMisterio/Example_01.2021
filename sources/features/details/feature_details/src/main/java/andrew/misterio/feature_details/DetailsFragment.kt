@@ -35,7 +35,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         val binding = FragmentDetailsBinding.bind(view)
         postponeEnterTransition()
         binding.rvDetailsList.apply {
-            adapter = RecyclerViewAdapter(createDetailsListDelegate())
+            adapter = RecyclerViewAdapter(createDetailsListDelegate(viewModel::onListItemClick))
             addItemDecoration(SpaceItemDecorator(16))
         }
         viewModel.viewData.observe(binding::applyData.invoke(p2 = ::startPostponedEnterTransition))

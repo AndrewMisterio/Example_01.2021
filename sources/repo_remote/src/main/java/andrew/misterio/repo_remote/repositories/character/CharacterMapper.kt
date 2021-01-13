@@ -9,6 +9,12 @@ val CharacterQuery.Character?.domain: Details
     get() = Details(
         imageUrl = this?.image().orEmpty(),
         title = this?.name().orEmpty(),
-        list = this?.episode()?.mapNotNull(CharacterQuery.Episode::name)
-            ?.map(::Episode.invoke(p2 = listOf())).orEmpty()
+        list = this?.episode()?.mapNotNull(::mapEpisode).orEmpty()
     )
+
+private fun mapEpisode(episodeApiModel: CharacterQuery.Episode): Episode? {
+    return Episode(
+        id = episodeApiModel.id()?.toIntOrNull() ?: return null,
+        title = "${episodeApiModel.episode()}: '${episodeApiModel.name()}'"
+    )
+}
