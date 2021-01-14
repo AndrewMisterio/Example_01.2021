@@ -19,7 +19,7 @@ import org.koin.core.scope.inject
 
 class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
-    private val viewModel by viewModel<HomeViewModel>()
+    private val viewModel: HomeViewModel by viewModel()
     private val res by inject<Resources>()
     private lateinit var adapter: RecyclerViewAdapter
 

@@ -20,6 +20,9 @@ project(':feature_base').projectDir = new File(rootDir, 'sources/features/featur
 include ':feature_start'
 project(':feature_start').projectDir = new File(rootDir, 'sources/features/start/feature_start')
 
+include ':feature_episode'
+project(':feature_episode').projectDir = new File(rootDir, 'sources/features/episode/feature_episode')
+
 include ':feature_home'
 project(':feature_home').projectDir = new File(rootDir, 'sources/features/home/feature_home')
 include ':domain_home'

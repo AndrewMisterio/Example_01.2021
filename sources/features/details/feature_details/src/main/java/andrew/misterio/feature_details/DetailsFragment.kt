@@ -20,7 +20,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
 
     private val params: ToDetailsParams? by ::getArguments.navArgs()
 
-    private val viewModel by viewModel<DetailsViewModel> { arrayOf(params?.id ?: -1) }
+    private val viewModel: DetailsViewModel by viewModel { arrayOf(params?.id ?: -1) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

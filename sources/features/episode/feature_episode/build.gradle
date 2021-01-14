@@ -30,7 +30,6 @@ android {
 
 dependencies {
     implementation project(":feature_base")
-    implementation project(":domain_details")
     implementation project(":repo_remote")
     implementation project(":common")
     implementation project(":navigation")

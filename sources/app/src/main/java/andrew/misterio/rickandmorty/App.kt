@@ -1,6 +1,7 @@
 package andrew.misterio.rickandmorty
 
 import andrew.misterio.feature_details.featureDetailsModule
+import andrew.misterio.feature_episode.episodeModule
 import andrew.misterio.feature_home.featureHomeModule
 import andrew.misterio.feature_start.featureStartModule
 import andrew.misterio.repo_remote.repoRemoteModule
@@ -23,7 +24,8 @@ class App : Application() {
                 featureStartModule,
                 featureHomeModule,
                 repoRemoteModule,
-                featureDetailsModule
+                featureDetailsModule,
+                episodeModule
             )
         }
     }

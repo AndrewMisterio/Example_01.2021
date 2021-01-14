@@ -8,3 +8,5 @@ fun <E> MutableList<E>.replace(oldItem: E, newItem: E): Int {
     }
     return position
 }
+
+fun <T> listOf(action: MutableList<T>.() -> Unit): List<T> = mutableListOf<T>().also(action)

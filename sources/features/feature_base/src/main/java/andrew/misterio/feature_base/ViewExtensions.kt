@@ -15,6 +15,8 @@ var View.isVisible: Boolean get() = visibility == View.VISIBLE
         }
     }
 
+val ViewGroup.inflater: LayoutInflater get() = LayoutInflater.from(context)
+
 fun ViewGroup.inflate(@LayoutRes layoutId: Int): View = LayoutInflater.from(context)
     .inflate(layoutId, this, false)
 

@@ -10,14 +10,23 @@ import org.koin.android.viewmodel.ViewModelOwner
 import org.koin.android.viewmodel.scope.viewModel
 import org.koin.core.parameter.parametersOf
 import org.koin.core.qualifier.named
+import org.koin.core.scope.KoinScopeComponent
 import java.io.Serializable
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
-inline fun <reified T : ViewModel> BaseFragment.viewModel(
+fun <T> T.linkToParent() where T : Fragment, T : KoinScopeComponent {
+    (
+        parentFragment as? KoinScopeComponent
+            ?: activity as? KoinScopeComponent
+        )
+        ?.let { scope.linkTo(it.scope) }
+}
+
+inline fun <reified T : ViewModel, F> F.viewModel(
     name: String? = null,
     noinline defParams: () -> Array<Any> = { arrayOf() }
-): Lazy<T> = scope.viewModel(
+): Lazy<T> where F : Fragment, F : KoinScopeComponent = scope.viewModel(
     qualifier = name?.let(::named),
     parameters = defParams andThen ::parametersOf,
     owner = { ViewModelOwner.Companion.from(viewModelStore) }

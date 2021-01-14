@@ -33,5 +33,13 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="andrew.misterio.feature_details.DetailsFragment"
-        android:label="DetailsFragment" />
+        android:label="DetailsFragment" >
+        <action
+            android:id="@id/navigation_to_episode"
+            app:destination="@id/episodeDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/episodeDialogFragment"
+        android:name="andrew.misterio.feature_episode.EpisodeDialogFragment"
+        android:label="EpisodeDialogFragment" />
 </navigation>
