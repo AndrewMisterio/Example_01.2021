@@ -7,6 +7,8 @@
       <module name="TestKoinVMCoroutines.app" target="1.8" />
       <module name="TestKoinVMCoroutines.common" target="1.8" />
       <module name="TestKoinVMCoroutines.domain_home" target="1.8" />
+      <module name="TestKoinVMCoroutines.feature_base" target="1.8" />
+      <module name="TestKoinVMCoroutines.feature_details" target="1.8" />
       <module name="TestKoinVMCoroutines.feature_episode" target="1.8" />
       <module name="TestKoinVMCoroutines.feature_home" target="1.8" />
       <module name="TestKoinVMCoroutines.feature_start" target="1.8" />

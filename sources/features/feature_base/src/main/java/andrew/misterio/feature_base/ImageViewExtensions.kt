@@ -23,7 +23,7 @@ fun ImageView.load(
         .run {
             placeHolderRes?.let(::placeholder)
             errorImageRes?.let(::error)
-            diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             listener(
                 object : RequestListener<Drawable?> {
                     override fun onLoadFailed(

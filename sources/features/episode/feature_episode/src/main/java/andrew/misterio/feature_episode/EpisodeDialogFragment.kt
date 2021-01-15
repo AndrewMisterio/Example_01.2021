@@ -1,10 +1,12 @@
 package andrew.misterio.feature_episode
 
 import andrew.misterio.feature_base.linkToParent
+import andrew.misterio.feature_base.navigation.screens.ToEpisode
 import andrew.misterio.feature_base.recycler.RecyclerViewAdapter
 import andrew.misterio.feature_base.viewModel
 import andrew.misterio.feature_episode.databinding.DialogEpisodeBinding
 import andrew.misterio.feature_episode.recycler.createEpisodeCharacterDelegate
+import andrew.misterio.navigation.navArgs
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -21,7 +23,9 @@ import org.koin.core.scope.newScope
 class EpisodeDialogFragment : AppCompatDialogFragment(), KoinScopeComponent {
 
     override val scope: Scope by lazy { newScope(this) }
-    private val viewModel: EpisodeDialogViewModel by viewModel<EpisodeDialogViewModelImpl, EpisodeDialogFragment>()
+
+    private val args: ToEpisode? by ::getArguments.navArgs()
+    private val viewModel: EpisodeDialogViewModel by viewModel<EpisodeDialogViewModelImpl>()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

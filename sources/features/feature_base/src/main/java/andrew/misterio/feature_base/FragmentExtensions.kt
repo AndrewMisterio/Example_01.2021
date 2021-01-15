@@ -6,11 +6,13 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import arrow.syntax.function.andThen
+import org.koin.android.ext.android.getKoin
 import org.koin.android.viewmodel.ViewModelOwner
 import org.koin.android.viewmodel.scope.viewModel
 import org.koin.core.parameter.parametersOf
 import org.koin.core.qualifier.named
 import org.koin.core.scope.KoinScopeComponent
+import org.koin.core.scope.ScopeDefinition
 import java.io.Serializable
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
@@ -23,10 +25,13 @@ fun <T> T.linkToParent() where T : Fragment, T : KoinScopeComponent {
         ?.let { scope.linkTo(it.scope) }
 }
 
-inline fun <reified T : ViewModel, F> F.viewModel(
+inline fun <reified T : ViewModel> Fragment.viewModel(
     name: String? = null,
     noinline defParams: () -> Array<Any> = { arrayOf() }
-): Lazy<T> where F : Fragment, F : KoinScopeComponent = scope.viewModel(
+): Lazy<T> = when (this) {
+    is KoinScopeComponent -> scope
+    else -> getKoin().getScope(ScopeDefinition.ROOT_SCOPE_ID)
+}.viewModel(
     qualifier = name?.let(::named),
     parameters = defParams andThen ::parametersOf,
     owner = { ViewModelOwner.Companion.from(viewModelStore) }
