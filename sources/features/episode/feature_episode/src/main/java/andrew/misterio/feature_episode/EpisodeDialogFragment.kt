@@ -3,6 +3,7 @@ package andrew.misterio.feature_episode
 import andrew.misterio.feature_base.linkToParent
 import andrew.misterio.feature_base.navigation.screens.ToEpisode
 import andrew.misterio.feature_base.recycler.RecyclerViewAdapter
+import andrew.misterio.feature_base.recycler.decorators.SpaceItemDecorator
 import andrew.misterio.feature_base.viewModel
 import andrew.misterio.feature_episode.databinding.DialogEpisodeBinding
 import andrew.misterio.feature_episode.recycler.createEpisodeCharacterDelegate
@@ -46,6 +47,7 @@ class EpisodeDialogFragment : AppCompatDialogFragment(), KoinScopeComponent {
             rvEpisodeCharacters.apply {
                 adapter = RecyclerViewAdapter(createEpisodeCharacterDelegate())
                 layoutManager = GridLayoutManager(context, 4)
+                addItemDecoration(SpaceItemDecorator(innerSpacePx = 16, outerSpacePx = 16, layers = 4))
             }
             viewModel.data.observe(viewLifecycleOwner, this::applyData)
         }

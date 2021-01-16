@@ -41,8 +41,8 @@ fun createCharacterAdapterDelegate(
 
         binding.ivItemPersonImage.load(
             url = it.imageUrl,
-            placeHolderRes = R.drawable.ic_unknown_character,
-            errorImageRes = R.drawable.ic_unknown_character
+            placeHolderRes = R.drawable.ic_unknown,
+            errorImageRes = R.drawable.ic_unknown
         )
         if (it.title.isNotEmpty()) {
             binding.tvItemPersonTitle.text = it.title

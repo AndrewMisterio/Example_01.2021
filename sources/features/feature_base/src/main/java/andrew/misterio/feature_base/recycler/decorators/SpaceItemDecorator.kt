@@ -26,6 +26,7 @@ class SpaceItemDecorator(
         val posInLayer = pos / layers
         val lastPosInLayer = parent.adapter?.itemCount ?: 0
 
+        // FIXME With > 2 layers has wrong content size
         outRect.set(
             if (currentLayer == 0) outerSpacePx else innerSpacePx / 2,
             if (posInLayer == 0) outerSpacePx else innerSpacePx / 2,

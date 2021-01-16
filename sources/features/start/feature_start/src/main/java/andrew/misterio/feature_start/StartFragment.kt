@@ -1,7 +1,7 @@
 package andrew.misterio.feature_start
 
 import andrew.misterio.feature_base.BaseFragment
-import andrew.misterio.feature_base.load
+import andrew.misterio.feature_base.loadRes
 import andrew.misterio.feature_base.viewModel
 import andrew.misterio.feature_start.databinding.StartFragmentBinding
 import android.animation.AnimatorSet
@@ -20,7 +20,7 @@ class StartFragment : BaseFragment(R.layout.start_fragment) {
 }
 
 private fun StartFragmentBinding.applyData(data: ViewModelData) {
-    ivStartImage.load(data.mainImageUrl)
+    ivStartImage.loadRes(R.raw.intro)
     root.post {
         AnimatorSet().apply {
             duration = data.animationDuration
@@ -34,7 +34,7 @@ private fun StartFragmentBinding.applyData(data: ViewModelData) {
                     tvStartTitle,
                     View.TRANSLATION_Y,
                     0f,
-                    -root.height.toFloat() * 0.645f
+                    -root.height.toFloat() * 0.5f
                 ).apply { interpolator = anticipateInterpolator }
             )
             start()

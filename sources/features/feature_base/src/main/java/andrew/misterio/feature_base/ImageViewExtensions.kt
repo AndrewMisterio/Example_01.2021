@@ -10,6 +10,14 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 
+fun ImageView.loadRes(
+    resId: Int
+) {
+    Glide.with(this)
+        .load(resId)
+        .into(this)
+}
+
 fun ImageView.load(
     url: String,
     @DrawableRes

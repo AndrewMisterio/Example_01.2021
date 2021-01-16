@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="RatioImageView">
+    <declare-styleable name="TrueImageView">
         <attr name="ratio" format="float"/>
+        <attr name="gravity" format="enum">
+            <enum name="top" value="0"/>
+            <enum name="bot" value="1"/>
+        </attr>
     </declare-styleable>
 </resources>
