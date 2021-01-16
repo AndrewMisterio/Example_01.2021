@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="item_title_padding">4dp</dimen>
+    <dimen name="recycler_items_space_default">16dp</dimen>
 </resources>

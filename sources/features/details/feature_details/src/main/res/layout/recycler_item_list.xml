@@ -10,7 +10,6 @@
         android:id="@+id/tvDetailsItemText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
         android:paddingHorizontal="6dp"
         android:paddingVertical="1dp"
         android:background="@drawable/item_background"

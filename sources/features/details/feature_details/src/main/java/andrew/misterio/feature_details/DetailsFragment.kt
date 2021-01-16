@@ -1,6 +1,7 @@
 package andrew.misterio.feature_details
 
 import andrew.misterio.feature_base.BaseFragment
+import andrew.misterio.feature_base.Resources
 import andrew.misterio.feature_base.load
 import andrew.misterio.feature_base.navigation.SharedElementsNames
 import andrew.misterio.feature_base.navigation.screens.ToDetailsParams
@@ -15,12 +16,14 @@ import android.view.View
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import androidx.transition.TransitionInflater
 import arrow.syntax.function.invoke
+import org.koin.core.scope.inject
 
 class DetailsFragment : BaseFragment(R.layout.fragment_details) {
 
     private val params: ToDetailsParams? by ::getArguments.navArgs()
 
     private val viewModel: DetailsViewModel by viewModel { arrayOf(params?.id ?: -1) }
+    private val resources: Resources by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +39,11 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         postponeEnterTransition()
         binding.rvDetailsList.apply {
             adapter = RecyclerViewAdapter(createDetailsListDelegate(viewModel::onListItemClick))
-            addItemDecoration(SpaceItemDecorator(16))
+            addItemDecoration(
+                SpaceItemDecorator(
+                    this@DetailsFragment.resources.getPixelsSize(R.dimen.recycler_items_space_default)
+                )
+            )
         }
         viewModel.viewData.observe(binding::applyData.invoke(p2 = ::startPostponedEnterTransition))
     }

@@ -15,5 +15,6 @@ fun createEpisodeCharacterDelegate() = delegate<EpisodeCharacterAdapterModel, Re
 }
 
 data class EpisodeCharacterAdapterModel(
+    val id: Int,
     val imageUrl: String
 ) : AdapterViewModel

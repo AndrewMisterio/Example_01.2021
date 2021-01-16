@@ -8,11 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
  * @param layers - columns or rows in GridLayoutManager(depend by orientation) or 1 in linear layout manager.
  */
 class SpaceItemDecorator(
-    private val innerSpacePx: Int,
-    private val outerSpacePx: Int = 0,
+    private val spacePx: Int,
     private val layers: Int = 1,
-    @RecyclerView.Orientation
-    private val orientation: Int = RecyclerView.VERTICAL
+    private val isIncludeEdge: Boolean = true
 ) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
@@ -21,17 +19,22 @@ class SpaceItemDecorator(
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
-        val pos = parent.getChildAdapterPosition(view)
-        val currentLayer = pos % layers
-        val posInLayer = pos / layers
-        val lastPosInLayer = parent.adapter?.itemCount ?: 0
+        val position = parent.getChildAdapterPosition(view)
+        val column: Int = position % layers
 
-        // FIXME With > 2 layers has wrong content size
-        outRect.set(
-            if (currentLayer == 0) outerSpacePx else innerSpacePx / 2,
-            if (posInLayer == 0) outerSpacePx else innerSpacePx / 2,
-            if (currentLayer == layers - 1) outerSpacePx else innerSpacePx / 2,
-            if (posInLayer == lastPosInLayer - 1) outerSpacePx else innerSpacePx / 2
-        )
+        if (isIncludeEdge) {
+            outRect.left = spacePx - column * spacePx / layers
+            outRect.right = (column + 1) * spacePx / layers
+            if (position < layers) {
+                outRect.top = spacePx
+            }
+            outRect.bottom = spacePx
+        } else {
+            outRect.left = column * spacePx / layers
+            outRect.right = spacePx - (column + 1) * spacePx / layers
+            if (position >= layers) {
+                outRect.top = spacePx
+            }
+        }
     }
 }

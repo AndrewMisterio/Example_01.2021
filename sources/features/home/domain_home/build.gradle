@@ -12,6 +12,4 @@ java {
 
 dependencies {
     implementation deps.kotlin
-    implementation deps.koin
-    implementation deps.coroutines
 }

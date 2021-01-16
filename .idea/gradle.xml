@@ -12,6 +12,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/domain_episode" />
             <option value="$PROJECT_DIR$/sources/app" />
             <option value="$PROJECT_DIR$/sources/common" />
             <option value="$PROJECT_DIR$/sources/features/details/domain_details" />

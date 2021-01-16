@@ -28,7 +28,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         FragmentHomeBinding.bind(view).apply {
             applyView(
                 columns = res.getInteger(R.integer.columns_count),
-                itemSpacePx = res.getPixelsSize(R.dimen.item_space)
+                itemSpacePx = res.getPixelsSize(R.dimen.recycler_items_space_default)
             )
             rvHomeList.post { startPostponedEnterTransition() }
         }
@@ -61,8 +61,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         rvHomeList.addItemDecoration(
             SpaceItemDecorator(
-                innerSpacePx = itemSpacePx,
-                outerSpacePx = itemSpacePx,
+                spacePx = itemSpacePx,
                 layers = columns
             )
         )

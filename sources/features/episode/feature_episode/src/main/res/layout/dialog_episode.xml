@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
+    android:background="#212121"
     tools:layout_gravity="center"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -15,14 +15,31 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvEpisodeTitle"
             style="@style/TextWithBG"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:gravity="center"
-            android:textSize="48sp"
+            android:paddingHorizontal="@dimen/recycler_item_space"
+            app:autoSizeMaxTextSize="50sp"
+            app:autoSizeMinTextSize="14sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEpisodeSubtitle"
+            style="@style/TextWithBG"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:paddingHorizontal="@dimen/recycler_item_space"
+            app:autoSizeMaxTextSize="18sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEpisodeTitle"
+            tools:text="Subtitle" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvEpisodeCharacters"
@@ -32,7 +49,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvEpisodeTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvEpisodeSubtitle"
             tools:listitem="@layout/recycle_item_character"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

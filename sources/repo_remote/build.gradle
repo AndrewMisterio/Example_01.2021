@@ -21,6 +21,7 @@ dependencies {
     implementation(
             project(":domain_home"),
             project(":domain_details"),
+            project(":domain_episode"),
             project(":common")
     )
 }
